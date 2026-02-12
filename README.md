@@ -6,7 +6,7 @@ A collection of hands-on Azure projects completed while learning cloud developme
 
 | # | Project | Status | Services Used | Cost |
 |---|---------|--------|---------------|------|
-| 1 | [File Upload Processing with Functions and Blob Storage](./project-01-file-upload-processing/) | 🚧 In Progress | Functions, Blob Storage | ~$0.10 |
+| 1 | [File Upload Processing with Functions and Blob Storage](./project-01-file-upload-processing/) | ✅ Complete | Functions, Blob Storage | ~$0.10 |
 | 2 | Real-time Status Notifications with SignalR | ⏳ Pending | SignalR, Functions | TBD |
 | 3 | Simple File Compression with Functions | ⏳ Pending | Functions, Storage | TBD |
 

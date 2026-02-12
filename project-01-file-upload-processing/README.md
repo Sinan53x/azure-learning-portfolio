@@ -264,21 +264,76 @@ rm -f function-deploy.zip test-file.txt test-image.jpg
 3. **Cost-effective**: Consumption plan means pay-per-execution, not per-hour
 4. **Scalability**: Automatically scales from 0 to thousands of instances
 
-### Challenges Faced
-- *Document any issues you encountered here*
-- *How you solved them*
+### Challenges Faced & Solutions
 
-### Next Steps
-- [ ] Add file type validation
-- [ ] Implement different processing for different file types
-- [ ] Add error handling and retry logic
-- [ ] Set up monitoring with Application Insights
+#### 1. **Azure CLI Subscription Issues**
+- **Problem**: Got `SubscriptionNotFound` error when creating resources
+- **Solution**: Had to explicitly set subscription with `az account set --subscription` and register providers
+
+#### 2. **Storage Provider Not Registered**
+- **Problem**: `Microsoft.Storage` provider was not registered in the subscription
+- **Solution**: Ran `az provider register --namespace Microsoft.Storage` and waited for it to complete
+
+#### 3. **Web Provider Not Registered**
+- **Problem**: `Microsoft.Web` provider needed for Function Apps was not registered
+- **Solution**: Ran `az provider register --namespace Microsoft.Web` and waited for registration
+
+#### 4. **Function Code Structure**
+- **Problem**: Function wasn't showing in portal after first deployment
+- **Solution**: Had to reorganize code into proper folder structure (`BlobTrigger/` folder) and redeploy
+
+#### 5. **Environment Variables Lost**
+- **Problem**: Variables reset between terminal sessions
+- **Solution**: Had to re-export all variables when opening new terminal windows
+
+#### 6. **Resource Naming**
+- **Problem**: RANDOM_SUFFIX was generated after variables were already set
+- **Solution**: Generate suffix FIRST, then use it in variable definitions
+
+### Next Steps (Completed in this project)
+- [x] Build serverless file processing system
+- [x] Configure blob triggers
+- [x] Deploy and test function
+- [x] Verify automatic execution on file upload
+
+### Ideas for Enhancement
+- [ ] Add image resizing using Azure Computer Vision
+- [ ] Implement dead letter queue for failed processing
+- [ ] Add email notifications on file upload
+- [ ] Create REST API to query processed files
+- [ ] Add authentication and authorization
 
 ---
 
 ## 📸 Screenshots
 
-*[Add screenshots of Azure Portal showing your resources here]*
+### Infrastructure Setup
+1. **Resource Group** - Created resource group in Switzerland North region
+   ![Resource Group](./screenshots/01-resource-group.png)
+
+2. **Storage Account** - Storage account for file uploads
+   ![Storage Account](./screenshots/02-storage-account.png)
+
+3. **Blob Container** - "uploads" container for storing files
+   ![Blob Container](./screenshots/03-blob-container.png)
+
+4. **Function App** - Serverless function app running on Consumption plan
+   ![Function App](./screenshots/04-function-app.png)
+
+### Testing & Results
+5. **Uploaded Files** - Test files successfully uploaded to blob storage
+   ![Uploads](./screenshots/05-uploads.png)
+
+6. **Activity Log** - Function app deployment and configuration activities
+   ![Activity Log](./screenshots/06-activity-log.png)
+
+7. **Function Invocations** - 3 successful function executions
+   ![Invocations List](./screenshots/07-invocations-list.png)
+
+8. **Invocation Details** - Detailed logs showing file processing
+   ![Invocation Details](./screenshots/08-invocation-details.png)
+   
+   *Shows: File detection, size (51 bytes), processing time, and "Generic file detected" message*
 
 ---
 
@@ -290,6 +345,6 @@ rm -f function-deploy.zip test-file.txt test-image.jpg
 
 ---
 
-**Status**: 🚧 In Progress  
-**Time Spent**: ~30 minutes  
+**Status**: ✅ Complete  
+**Time Spent**: ~2 hours  
 **Cost**: ~$0.10 (mostly within free tier)

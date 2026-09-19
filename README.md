@@ -1,5 +1,7 @@
 # Azure Serverless Projects - Learning Portfolio
 
+> **Status: Paused.** This portfolio contains one completed project; projects 2 and 3 were planned but never started. The repo is archived and kept for reference.
+
 A collection of hands-on Azure projects completed while learning cloud development. Each project includes complete documentation, architecture diagrams, and lessons learned.
 
 ## Learning Path: Azure Serverless & Integration
@@ -7,8 +9,8 @@ A collection of hands-on Azure projects completed while learning cloud developme
 | # | Project | Status | Services Used | Cost |
 |---|---------|--------|---------------|------|
 | 1 | [File Upload Processing with Functions and Blob Storage](./project-01-file-upload-processing/) | ✅ Complete | Functions, Blob Storage | ~$0.10 |
-| 2 | Real-time Status Notifications with SignalR | ⏳ Pending | SignalR, Functions | TBD |
-| 3 | Simple File Compression with Functions | ⏳ Pending | Functions, Storage | TBD |
+| 2 | Real-time Status Notifications with SignalR | ⛔ Not started | SignalR, Functions | — |
+| 3 | Simple File Compression with Functions | ⛔ Not started | Functions, Storage | — |
 
 ## About This Repository
 
